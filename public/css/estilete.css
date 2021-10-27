@@ -1,0 +1,16 @@
+.personajes{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    border: 5px solid darkblue;
+    text-align: center;
+    }
+.box {
+    border: 5px solid darkblue;
+    height: 100px;
+    width: 200px;
+  }
+

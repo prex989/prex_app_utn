@@ -1,0 +1,23 @@
+{
+  "name": "jlg",
+  "version": "1.0.0",
+  "main": "main_2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "git": "^0.1.5",
+    "hbs": "^4.1.2",
+    "heroku": "^7.59.1",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {},
+  "description": ""
+}

@@ -1,0 +1,164 @@
+
+-------Sistema de red ----------
+ Sistema de red
+ / * Dispositivos ultrapequeños (teléfonos móviles, de menos de 768px) * /
+ / * No hay consulta de medios por defecto en Bootstrap * /
+ 
+ / * Dispositivos pequeños (tabletas, a partir de 768 px) * /
+@media (min-width: @screen-sm-min) { ... }
+ 
+ / * Dispositivos de tamaño mediano (computadoras de escritorio, a partir de 992px) * /
+@media (min-width: @screen-md-min) { ... }
+ 
+ / * Equipo grande (computadoras de escritorio grandes, a partir de 1200 px) * /
+@media (min-width: @screen-lg-min) { ... }
+ 
+<div class="row">
+    <div class="col-*-*">
+ 
+    </div>
+<div>
+ 
+ Columna de compensación
+ .col-md-offset-*
+ Orden de columna
+ .col-md-push-*       .col-md-pull-*
+ 
+ -----------Tipografía----------------
+ .texto pequeño con un tamaño de fuente más pequeño y un color más claro
+ .lead Texto más grande y en negrita con mayor altura de línea
+ .text-muted: pista, use gris claro (# 999)
+ .text-primary: primario, use azul (# 428bca)
+ .text-success: éxito, use verde claro (# 3c763d)
+ .text-info: información de notificación, use azul claro (# 31708f)
+ .text-warning: advertencia, use amarillo (# 8a6d3b)
+ .text-danger: Peligro, use marrón (## a94442)
+ .text-left alinea el texto a la izquierda
+ .text-center alinea el texto en el centro
+ .text-right alinear texto a la derecha
+ .text-justify establece la alineación del texto, la parte del párrafo más allá de la pantalla se ajustará automáticamente
+ .text-nowrap Los párrafos más allá de la pantalla no se ajustan
+ .text-minúsculas establecer texto en minúsculas
+ .text-uppercase Establecer texto en mayúsculas
+ .text-capitalize Establecer la primera letra de una palabra en mayúscula
+ .initialism El texto mostrado en el elemento <abbr> se muestra en una fuente pequeña
+ .blockquote-reverse conjunto cotización alineación derecha
+ .list-unstyled elimina el estilo de lista predeterminado, los elementos de lista alineados a la izquierda (en <ul> y <ol>). Esta clase solo se aplica a los elementos de la lista secundaria directa (si necesita eliminar elementos de la lista anidada, debe usar este estilo en la lista anidada)
+ .list-inline pone todos los elementos de la lista en la misma línea
+ .dl-horizontal Esta clase establece flotantes y desplazamientos, que se utilizan en elementos <dl> y elementos <dt>. Para implementaciones específicas, puede ver ejemplos
+ .pre-scrollable hace que el elemento <pre> sea desplazable.
+ <abbr> Un borde punteado en la parte inferior del texto
+ <dirección> mostrar información de contacto
+ <blockquote> Esta es una cita con el título de la fuente
+ -----------Formar--------------
+ Clase de mesa
+ .table agrega estilos básicos a cualquier <table> (solo divisores horizontales)
+ .table-striped Agrega rayas de cebra en <tbody> (no es compatible con IE8)
+ .table-bordered agrega bordes a todas las celdas de la tabla
+ .table-hover Habilita el estado de desplazamiento del mouse en cualquier línea dentro de <tbody>
+ .table-condensed hace que la mesa sea más compacta
+   .table-responsive permite que la tabla se desplace horizontalmente para adaptarse a dispositivos pequeños (menos de 768px)
+ Clases <tr>, <th> y <td>
+ .active aplica el color flotante a la fila o celda
+ .success indica una operación exitosa
+ .info representa la operación de cambio de información
+ .warning representa una acción de advertencia
+ .peligro indica una operación peligrosa
+ ----------Formar-----------------
+ 1. Forma vertical o básica
+         1. Agregue role = "formulario" al elemento primario <form>.
+    2. Coloque etiquetas y controles en un <div> con la clase .form-group. Esto es necesario para obtener el espaciado óptimo.
+         3. Agregue la clase .form-control a todos los elementos de texto <input>, <textarea> y <select>.
+ 2. Formulario integrado
+         Agregue una clase a la etiqueta <form>. Form-inline se convertirá en una línea
+ 3. Forma horizontal
+         Agregue class .form-horizontal al elemento padre <form>.
+         Coloque etiquetas y controles en un <div> con la clase .form-group.
+         Agregue class .control-label a la etiqueta.
+ 
+ Elemento de formulario
+checkbox radio
+         Al crear un formulario, si desea que los usuarios seleccionen varias opciones de la lista, use una casilla de verificación. Si restringe a los usuarios a una sola opción, use la radio.
+         Utilice la clase .checkbox-inline o .radio-inline para una serie de casillas de verificación y botones de radio para controlar que se muestren en la misma línea
+select
+         Utilice el cuadro de selección cuando desee que los usuarios elijan entre varias opciones, pero solo se puede seleccionar una opción de forma predeterminada.
+         Utilice <seleccionar> para mostrar las opciones de la lista, generalmente aquellas con las que los usuarios están familiarizados, como estados o números.
+         Utilice multiple = "multiple" para permitir a los usuarios seleccionar varias opciones
+ Control estático
+         Cuando necesite colocar texto sin formato detrás de una etiqueta de formulario en forma horizontal, utilice class .form-control-static en <p>.
+ Estado de control de formulario
+         Además del: estado de enfoque (es decir, el usuario hace clic en la entrada o usa la tecla de tabulación para enfocarse en la entrada), Bootstrap también define estilos para cuadros de entrada deshabilitados y proporciona una clase para la validación de formularios.
+         Enfoque del cuadro de entrada
+         Cuando la entrada del cuadro de entrada recibe: foco, el contorno del cuadro de entrada se eliminará y se aplicará la sombra del cuadro.
+         Entrada de cuadro de entrada deshabilitada
+         Si desea deshabilitar la entrada de un cuadro de entrada, simplemente agregue el atributo deshabilitado, que no solo deshabilitará el cuadro de entrada, sino que también cambiará el estilo del cuadro de entrada y el estilo del puntero del mouse cuando el puntero del mouse pasa sobre el elemento.
+         Conjunto de campos desactivado conjunto de campos
+         Agregue el atributo deshabilitado al <fieldset> para deshabilitar todos los controles en el <fieldset>.
+         Estado de verificación
+         Bootstrap incluye estilos de validación para mensajes de error, advertencia y éxito. Simplemente agregue la clase apropiada (.has-warning, .has-error o .has-success) al elemento principal para usar el estado de verificación.
+ Tamaño de control de formulario
+         Puede usar class .input-lg y .col-lg- * respectivamente para establecer la altura y el ancho del formulario. El siguiente ejemplo demuestra esto:
+ --------------------Botón-----------------
+ Un estilo
+ .btn para agregar estilos básicos al botón
+ Botón .btn-default predeterminado / estándar
+ .btn-primary Estilo de botón original (no operado)
+ .btn-success indica una acción exitosa
+ .btn-info Este estilo se puede usar para botones que desean mostrar información
+ .btn-warning indica un botón que requiere una operación cuidadosa
+ .btn-danger representa una operación de botón de acción peligrosa
+ .btn-link hace que el botón se vea como un enlace (aún conserva el comportamiento del botón)
+ .btn-lg hacer un botón grande
+ .btn-sm hacer un pequeño botón
+ .btn-xs hace un botón súper pequeño
+ Botón de bloque .btn-block (estirado al 100% del ancho del elemento principal)
+ Se hace clic en el botón .active
+ .disabled Desactivar botón
+ Tamaño de dos botones
+ .btn-lg Esto hará que el botón parezca más grande.
+ .btn-sm Esto hará que el botón parezca más pequeño.
+ .btn-xs Esto hará que el botón se vea particularmente pequeño.
+ .btn-block Esto creará un botón a nivel de bloque que abarcará todo el ancho del elemento padre.
+ Estado de tres botones
+ El elemento de botón agrega la clase .active para mostrar que está activo.
+El elemento de ancla agrega la clase .active al botón <a> para mostrar que está activo.
+ Cuatro botones de desactivación
+ El elemento de botón agrega el atributo deshabilitado al botón <button>.
+ El elemento de ancla agrega la clase deshabilitada al botón <a>.
+ Nota: Esta clase solo cambiará la apariencia de <a>, pero no su función. Aquí, debe usar JavaScript personalizado para deshabilitar el enlace.
+ ----------------Imagen-----------------
+ .img-redondeado: agregue border-radius: 6px para obtener esquinas redondeadas de la imagen.
+ .img-circle: agregue border-radius: 50% para hacer que toda la imagen sea un círculo.
+ .img-thumbnail: agregue algo de relleno y un borde gris.
+ .img-responsive Image responsive (se extenderá bien al elemento principal)
+ ------------------ Asistencia / Antecedentes -------------
+ Antecedentes
+ Las celdas de la tabla .bg-primary usan la clase "bg-primary"
+ La celda de la tabla .bg-success usa la clase "bg-success"
+ Las celdas de la tabla .bg-info usan la clase "bg-info"
+ Las celdas de la tabla .bg-warning usan la clase "bg-warning"
+ Las celdas de la tabla .bg-danger usan la clase "bg-danger"
+ Otro
+ El elemento .pull-left flota a la izquierda
+ El elemento .pull-right flota a la derecha
+ .center-block Establecer el elemento a mostrar: bloquear y mostrarlo en el centro
+ .clearfix clear float
+ .show Visualización de elementos obligatorios
+ .hidden obliga a los elementos a ocultarse
+ .sr-only Además de los lectores de pantalla, elementos ocultos en otros dispositivos
+ .sr-only-focusable se usa junto con la clase .sr-only para mostrar cuando el elemento obtiene el foco (por ejemplo, usuarios de operaciones de teclado)
+ .text-hide reemplaza el contenido de texto contenido en el elemento de la página con la imagen de fondo
+ .cerrar Mostrar botón cerrar
+ .caret mostrar función desplegable
+ Cerrar icono
+ Utilice el icono de cierre universal para cerrar los cuadros modales y de advertencia. Use class close para obtener el ícono de cerrar.
+ Signo de intercalación
+ Use el signo de intercalación para indicar la función y la dirección del menú desplegable. Utilice el elemento <span> con la clase de intercalación para obtener esta función.
+ Flotador rápido
+ Puede usar la clase pull-left o pull-right para hacer flotar el elemento hacia la izquierda o hacia la derecha, respectivamente. El siguiente ejemplo demuestra esto.
+ Centrado en contenido
+ Use el bloque central de la clase para centrar los elementos
+ Flotador claro
+ Para borrar el flotante de un elemento, use la clase .clearfix.
+ Mostrar y ocultar contenido
+ Puede usar class .show y .hidden para forzar la visualización u ocultar elementos (incluidos los lectores de pantalla).
