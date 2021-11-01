@@ -86,8 +86,6 @@
                 </svg>
             </div>
 
-
-
             <div class="container" id="contenedor-formulario">
                 <div id="formulario" class="text-center mb-4">
                     <div>
@@ -100,7 +98,7 @@
 
                 <!---Formulario-->
 
-                <form action="/send-email" method="POSt">
+                <form action="/send-email" method="POST">
                     <div class="mb-3">
                         <input type="text" class="form-control" name="name"
                             id="name" placeholder="Juan Perez" required />
@@ -131,14 +129,11 @@
                     </div>
                     <div class="mb-3">
                         <textarea class="form-control" name="textomensaje"
-                            id="textomensaje" rows="3" placeholder="Escribe tu
-                            Mensaje"></textarea>
+                            id="textomensaje" rows="3" placeholder="Escribe tu Mensaje"></textarea>
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary w-100 fs-5" name="button"
-                            type="button" onclick="validarformulario()">
-                            Enviar Mensaje
-                        </button>
+                            id="button" onclick="validarformulario()">Enviar Mensaje</button>
                     </div>
                 </form>
             </div>
@@ -146,5 +141,4 @@
         <!---Footer--->
         {{>footer}}
     </body>
-
 </html>

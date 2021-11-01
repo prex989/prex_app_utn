@@ -3,15 +3,14 @@ const hbs = require('hbs')
 const app = express()
 const port = process.env.PORT || 3000;
 
+
 require('dotenv').config();
-
-
-app.use(require('./routes/index'));
+app.use(express.urlencoded({ extended: false }));
+app.use(require('./routes'));
 app.set('view engine', 'hbs')
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
+app.use(express.json());
 
 // app.use(express.static(path.join(__dirname,'public')));
 hbs.registerPartials(__dirname + "/views/partials/")
@@ -31,12 +30,12 @@ app.get('/alquileres', (req, res) => {
 
 app.get('/a201', (req, res) => {
 
-    res.render('a201')
-})
-app.get('/success', (req, res) => {
+        res.render('a201')
+    })
+    // app.get('/success', (req, res) => {
 
-    res.render('success')
-})
+//     res.render('success')
+// })
 
 
 // app.get('/contactos', (req, res) => {
@@ -54,6 +53,6 @@ app.get('*', (req, res) => {
     res.send('')
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`Usando el puerto http://localhost:${port}`)
 })
