@@ -64,6 +64,16 @@ app.get('/alquileres', (req, res) => {
     });
 })
 
+app.get('/galeria', (req, res) => {
+    let sql = "SELECT * FROM galeria";
+    let query = conn.query(sql, (err, results) => {
+        if (err) throw err;
+        res.render('galeria', {
+            results
+        });
+    });
+})
+
 app.get('/a201', (req, res) => {
 
         res.render('a201')
