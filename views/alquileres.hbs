@@ -13,54 +13,48 @@
     </head>
           <!-- -------HEADER-------------- -->
 {{>header}}
-<!-- ------------------------galeria-------------------- -->
+<!--------------------------galeria---------------------->
 <div class="galeria">
     <h1>Propiedades en Alquiler</h1>
+    {{#each results}}
     <div class="linea"></div>
     <div class="contenedor-imagenes">
     <div class="imagen">
-      <img src="img/Alquiler/a0201/foto1.jpg">
+      <img src={{path}}>
       <div class="overlay">
         <h2><a href="a201">Ver mas Fotos</a></h2>
       </div>
     </div>
-    <div class="imagen">
-      <img src="img/Alquiler/a0202/foto1.jpeg">
-      <div class="overlay">
-        <h2><a href="a202">Ver mas Fotos</a></h2>
-      </div>
-    </div>
-    <div class="imagen">
-      <img src="img/Alquiler/a0203/foto1.jpeg">
-      <div class="overlay">
-        <h2><a href="a203">Ver mas Fotos</a></h2>
-      </div>
-    </div>
-    <div class="imagen">
-      <img src="img/Alquiler/a0204/foto4.jpeg">
-      <div class="overlay">
-        <h2><a href="a204">Ver mas Fotos</a></h2>
-      </div>
-    </div>
-    <div class="imagen">
-      <img src="img/Alquiler/a0205/foto13.jpeg">
-      <div class="overlay">
-        <h2><a href="a205">Ver mas Fotos</a></h2>
-      </div>
-    </div>
-    <div class="imagen">
-      <img src="img/Alquiler/a0206/foto1.jpeg">
-      <div class="overlay">
-        <h2><a href="a206">Ver mas Fotos</a></h2>
-      </div>
-    </div>
-
   </div>
+<div class="mx-auto d-block text-center">
+    <h5>Sup Cubierta: {{sup_cubierta}}</h5>
+    <h5>Sup Total: {{sup_total}}</h5>
+    <h5>Dormitorios: {{dormitorios}}</h5>    
+    <h5>Precio: $ {{precio}}</h5>
+</div>
+  {{/each}}
 </div>
 
 
-
-
+{{!-- //Detalle de la propiedad --}}
+{{!-- <table class=table table-striped id="myTable">
+       <thead>
+                <th> Sup Total </th>
+                <th> Sup Cubierta </th>
+                <th> Dormitorios </th>
+                <th> Precio </th>
+        </thead>
+        <tbody>
+                {{#each results}}
+                <tr>
+                 <td>{{ sup_total }} </td>
+                 <td>{{ sup_cubierta }} </td>                 
+                  <td>{{ dormitorios }} </td>
+                  <td>U$${{ precio }} </td>
+                </tr>
+                {{/each}}
+        </tbody>
+</table> --}}
 
 {{>footer}}
 
