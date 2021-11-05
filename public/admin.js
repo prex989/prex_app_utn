@@ -1,8 +1,9 @@
 //Definición de variables
 const url = 'http://localhost:3000/propiedades/'
 const contenedor = document.querySelector('tbody')
+    // const Handlebars = require("handlebars");
 let resultados = ''
-
+    // const hbs = require('hbs')
 const modalPropiedad = new bootstrap.Modal(document.getElementById('modalPropiedad'))
 const formPropiedades = document.querySelector('form')
 const precio = document.getElementById('precio')
@@ -11,7 +12,15 @@ const suptot = document.getElementById('suptot')
 const dormi = document.getElementById('dormi')
 const descripcion = document.getElementById('descripcion')
 const estado_inm = document.getElementById('estado_inm')
+const modalimagen = new bootstrap.Modal(document.getElementById('modalimagen'))
+const imagePreview = document.getElementById('img-preview');
+const imageUploader = document.getElementById('img-uploader');
+const imageUploadbar = document.getElementById('img-upload-bar');
+const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/student-arg21/image/upload`
+const CLOUDINARY_UPLOAD_PRESET = 'oe6tk5tz';
 var opcion = ''
+
+
 
 btnCrear.addEventListener('click', () => {
     precio.value = ''
@@ -19,6 +28,7 @@ btnCrear.addEventListener('click', () => {
     suptot.value = ''
     dormi.value = ''
     descripcion.value = ''
+    estado_inm.value = ''
     modalPropiedad.show()
     opcion = 'crear'
 })
@@ -34,13 +44,15 @@ const mostrar = (propiedades) => {
                             <td>${propiedades.dormi}</td>
                             <td>${propiedades.descripcion}</td>
                             <td>${propiedades.estado_inm}</td>                            
-                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
+                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a><a class="btnImagen btn btn-primary">Imagen</a></td>
                        </tr>
                     `
     })
     contenedor.innerHTML = resultados
 
 }
+
+
 
 //Procedimiento Mostrar
 fetch(url)
@@ -122,6 +134,7 @@ formPropiedades.addEventListener('submit', (e) => {
             .then(response => {
                 console.log(response)
                 response.json()
+                location.reload()
             })
             .then(data => {
                 const nuevoPropiedades = []
@@ -150,3 +163,71 @@ formPropiedades.addEventListener('submit', (e) => {
     }
     modalPropiedad.hide()
 })
+
+
+
+//Click Boton Imagen
+on(document, 'click', '.btnImagen', e => {
+    const fila = e.target.parentNode.parentNode
+    const id = fila.firstElementChild.innerHTML
+    modalimagen.show()
+    imageUploader.addEventListener('change', async(e) => {
+        // console.log(e);
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+
+        // Send to cloudianry
+        const res = await axios.post(
+            CLOUDINARY_URL,
+            formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress(e) {
+                    let progress = Math.round((e.loaded * 100.0) / e.total);
+                    console.log(progress);
+                    imageUploadbar.setAttribute('value', progress);
+                }
+            }
+        );
+        console.log(res);
+        imagePreview.src = res.data.secure_url;
+    });
+
+})
+
+
+// Procedimiento imagen upload
+on(document, 'click', '.btnImagen', e => {
+    e.preventDefault()
+    modalimagen.show()
+    imageUploader.addEventListener('change', async(e) => {
+        // console.log(e);
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+
+        // Send to cloudianry
+        const res = await axios.post(
+            CLOUDINARY_URL,
+            formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress(e) {
+                    let progress = Math.round((e.loaded * 100.0) / e.total);
+                    console.log(progress);
+                    imageUploadbar.setAttribute('value', progress);
+                }
+            }
+        );
+        console.log(res);
+        imagePreview.src = res.data.secure_url;
+    });
+    opcion = 'imagen'
+});
