@@ -15,7 +15,7 @@
 {{>header}}
 <!--------------------------galeria---------------------->
 <div class="galeria">
-    <h1>Propiedades en Alquiler</h1>
+    <h1>Propiedades en Venta</h1>
     {{#each results}}
     <div class="linea"></div>
     <div class="contenedor-imagenes">
@@ -34,28 +34,6 @@
 </div>
   {{/each}}
 </div>
-
-
-{{!-- //Detalle de la propiedad --}}
-{{!-- <table class=table table-striped id="myTable">
-       <thead>
-                <th> Sup Total </th>
-                <th> Sup Cubierta </th>
-                <th> Dormitorios </th>
-                <th> Precio </th>
-        </thead>
-        <tbody>
-                {{#each results}}
-                <tr>
-                 <td>{{ sup_total }} </td>
-                 <td>{{ sup_cubierta }} </td>                 
-                  <td>{{ dormitorios }} </td>
-                  <td>U$${{ precio }} </td>
-                </tr>
-                {{/each}}
-        </tbody>
-</table> --}}
-
 {{>footer}}
 
     </body>
