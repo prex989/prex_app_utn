@@ -12,12 +12,7 @@ const suptot = document.getElementById('suptot')
 const dormi = document.getElementById('dormi')
 const descripcion = document.getElementById('descripcion')
 const estado_inm = document.getElementById('estado_inm')
-const modalimagen = new bootstrap.Modal(document.getElementById('modalimagen'))
-const imagePreview = document.getElementById('img-preview');
-const imageUploader = document.getElementById('img-uploader');
-const imageUploadbar = document.getElementById('img-upload-bar');
-const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/student-arg21/image/upload`
-const CLOUDINARY_UPLOAD_PRESET = 'oe6tk5tz';
+
 var opcion = ''
 
 
@@ -43,8 +38,9 @@ const mostrar = (propiedades) => {
                             <td>${propiedades.suptot}</td>
                             <td>${propiedades.dormi}</td>
                             <td>${propiedades.descripcion}</td>
-                            <td>${propiedades.estado_inm}</td>                            
-                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a><a class="btnImagen btn btn-primary">Imagen</a></td>
+                            <td>${propiedades.estado_inm}</td>        
+                            <td>${propiedades.imagen}</td>                    
+                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a><a class="btnImagen btn btn-primary data-bs-toogle="modal" data-bs-target="#myModal">Imagen</a></td>
                        </tr>
                     `
     })
@@ -170,64 +166,8 @@ formPropiedades.addEventListener('submit', (e) => {
 on(document, 'click', '.btnImagen', e => {
     const fila = e.target.parentNode.parentNode
     const id = fila.firstElementChild.innerHTML
-    modalimagen.show()
-    imageUploader.addEventListener('change', async(e) => {
-        // console.log(e);
-        const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    myModal.show();
 
-
-        // Send to cloudianry
-        const res = await axios.post(
-            CLOUDINARY_URL,
-            formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                onUploadProgress(e) {
-                    let progress = Math.round((e.loaded * 100.0) / e.total);
-                    console.log(progress);
-                    imageUploadbar.setAttribute('value', progress);
-                }
-            }
-        );
-        console.log(res);
-        imagePreview.src = res.data.secure_url;
-    });
-
-})
-
-
-// Procedimiento imagen upload
-on(document, 'click', '.btnImagen', e => {
-    e.preventDefault()
-    modalimagen.show()
-    imageUploader.addEventListener('change', async(e) => {
-        // console.log(e);
-        const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-
-        // Send to cloudianry
-        const res = await axios.post(
-            CLOUDINARY_URL,
-            formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                onUploadProgress(e) {
-                    let progress = Math.round((e.loaded * 100.0) / e.total);
-                    console.log(progress);
-                    imageUploadbar.setAttribute('value', progress);
-                }
-            }
-        );
-        console.log(res);
-        imagePreview.src = res.data.secure_url;
-    });
     opcion = 'imagen'
-});
+    modalimagen.hide();
+})

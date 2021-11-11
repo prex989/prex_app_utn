@@ -12,8 +12,8 @@ const suptot = document.getElementById('suptot')
 const dormi = document.getElementById('dormi')
 const descripcion = document.getElementById('descripcion')
 const estado_inm = document.getElementById('estado_inm')
+const imagen = document.getElementById('imagen')
 var opcion = ''
-
 
 
 btnCrear.addEventListener('click', () => {
@@ -37,14 +37,17 @@ const mostrar = (propiedades) => {
                             <td>${propiedades.suptot}</td>
                             <td>${propiedades.dormi}</td>
                             <td>${propiedades.descripcion}</td>
-                            <td>${propiedades.estado_inm}</td>                            
-                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a><a class="btnImagen btn btn-primary">Imagen</a></td>
+                            <td>${propiedades.estado_inm}</td>  
+                            <td>${propiedades.imagen}</td>                          
+                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
                        </tr>
                     `
     })
     contenedor.innerHTML = resultados
 
 }
+
+
 
 //Procedimiento Mostrar
 fetch(url)
@@ -93,12 +96,15 @@ on(document, 'click', '.btnEditar', e => {
     const suptotForm = fila.children[3].innerHTML
     const dormiForm = fila.children[4].innerHTML
     const descripcionForm = fila.children[5].innerHTML
-    const estado_inm = fila.children[6].innerHTML
+    const estado_inmForm = fila.children[6].innerHTML
+    const imagenForm = imagen.value
     precio.value = precioForm
     supcub.value = supcubForm
     suptot.value = suptotForm
     dormi.value = dormiForm
     descripcion.value = descripcionForm
+    estado_inm.value = estado_inmForm
+    imagen.value = imagenForm
     opcion = 'editar'
     modalPropiedad.show()
 
@@ -120,7 +126,8 @@ formPropiedades.addEventListener('submit', (e) => {
                     suptot: suptot.value,
                     dormi: dormi.value,
                     descripcion: descripcion.value,
-                    estado_inm: estado_inm.value
+                    estado_inm: estado_inm.value,
+                    imagen: imagen.value
                 })
             })
             .then(response => {
@@ -147,7 +154,8 @@ formPropiedades.addEventListener('submit', (e) => {
                     suptot: suptot.value,
                     dormi: dormi.value,
                     descripcion: descripcion.value,
-                    estado_inm: estado_inm.value
+                    estado_inm: estado_inm.value,
+                    imagen: imagen.value
                 })
             })
             .then(response => response.json())
@@ -155,3 +163,7 @@ formPropiedades.addEventListener('submit', (e) => {
     }
     modalPropiedad.hide()
 })
+
+
+
+// // Procedimiento imagen upload

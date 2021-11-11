@@ -86,7 +86,7 @@ app.get('/alquileres', (req, res) => {
 //Crear nuevo registro propiedades
 
 app.post('/propiedades', (req, res) => {
-    let data = { precio: req.body.precio, supcub: req.body.supcub, suptot: req.body.suptot, dormi: req.body.dormi, descripcion: req.body.descripcion, estado_inm: req.body.estado_inm };
+    let data = { precio: req.body.precio, supcub: req.body.supcub, suptot: req.body.suptot, dormi: req.body.dormi, descripcion: req.body.descripcion, estado_inm: req.body.estado_inm, imagen: req.body.imagen };
     let sql = "INSERT INTO propiedades SET?";
     conn.query(sql, data, function(error, results) {
         if (error) {
@@ -133,8 +133,9 @@ app.put('/propiedades/:id', (req, res) => {
     let dormi = req.body.dormi;
     let descripcion = req.body.descripcion;
     let estado_inm = req.body.estado_inm;
-    let sql = "UPDATE propiedades SET precio=?, supcub=?, suptot=?, dormi=?, descripcion=?, estado_inm=? WHERE id=?";
-    conn.query(sql, [precio, supcub, suptot, dormi, descripcion, estado_inm, id], function(error, results) {
+    let imagen = req.body.imagen;
+    let sql = "UPDATE propiedades SET precio=?, supcub=?, suptot=?, dormi=?, descripcion=?, estado_inm=? imagen=? WHERE id=?";
+    conn.query(sql, [precio, supcub, suptot, dormi, descripcion, estado_inm, id, imagen], function(error, results) {
         if (error) {
             throw error;
         } else {
