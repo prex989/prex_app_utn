@@ -37,7 +37,7 @@ router.post('/send-email', async(req, res) => {
         html: contentHTML
     });
     console.log('message sent', info.messageId);
-    // console.log('mensaje enviado');
+    // alertify.success('Ok');
     res.redirect('index');
 
 

@@ -13,15 +13,12 @@
             integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
             crossorigin="anonymous">
         <!-- CSS -->
-        <link rel="stylesheet"
+       <link rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
-            />
+            /> 
         <!-- Default theme -->
-        <link rel="stylesheet"
-            href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"
-            />
-        <link rel="stylesheet" href="css/styleImg.css">
-        <link rel="stylesheet" href="css/estilos.css" />
+        <link rel="stylesheet" href="/public/css/styleimg.css">
+        <link rel="stylesheet" href="/css/estilos.css" />
 
         <title>Administración App JLG</title>
         <style>
@@ -37,22 +34,16 @@
     </head>
     {{>header}}
     <body>
+        <h5>Administración de Propiedades, Upload de Imágenes de cada Propiedad</h5>
+
         <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
             <button id="btnCrear" type="button" class="btn btn-primary"
-                data-bs-toggle="modal" data-bs-target="#modalPropiedad">Crear</button>
-            <table id="tablaPropiedades" class="table mt-2 table-bordered
-                table-striped">
+                data-bs-toggle="modal" data-bs-target="#modalGaleria">Agregar Imagenes</button>
+            <table id="tablaGaleria" class="table mt-2 table-bordered table-striped">
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
-                        <th>Precio</th>
-                        <th>Sup Cubierta</th>
-                        <th>Sup Total</th>
-                        <th>Dormitorios</th>
-                        <th>Descripción</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                        <th>Imagen</th>
+                        <th>URL</th>                     
                     </tr>
                 </thead>
                 <tbody>
@@ -60,7 +51,7 @@
             </table>
         </div>
 
-        <div id="modalPropiedad" class="modal fade" tabindex="-1"
+        <div id="modalGaleria" class="modal fade" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -72,45 +63,13 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="precio" class="col-form-label">Precio</label>
-                                <input id="precio" type="number"
+                                <label for="id" class="col-form-label">Id Propiedad</label>
+                                <input id="id" type="number"
                                     class="form-control" autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label for="supcub" class="col-form-label">Sup
-                                    Cubierta</label>
-                                <input id="supcub" type="number"
-                                    class="form-control" autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label for="suptot" class="col-form-label">Sup
-                                    Total</label>
-                                <input id="suptot" type="number"
-                                    class="form-control" autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label for="dormi" class="col-form-label">Dormitorios</label>
-                                <input id="dormi" type="number"
-                                    class="form-control" autofocus>
-                            </div>
-                            <div class="mb-3">                               
-                                <label for="descripcion" class="col-form-label">Descripción:</label>
-                                <input id="descripcion" type="text"
-                                    class="form-control" autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label for="selector" class="col-form-label">Estado:</label>
-                                <select id="estado_inm" name="estado_inm"
-                                    class="form-control" placeholder="Presione
-                                    para
-                                    elegir Alquiler o Venta">
-                                    <option value="Venta">Venta</option>
-                                    <option value="Alquiler">Alquiler</option>
-                                </select>
-                            </div>
+                            </div>                            
                             <div class="mb-3">                               
                                 <label for="imagen" class="col-form-label">Imagen:</label>
-                                <input id="imagen" type="file" name="imagen"
+                                <input id="imagen" type="file" multiple name="imagen"
                                     class="form-control" autofocus>
                                 <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>    
                             </div>                            

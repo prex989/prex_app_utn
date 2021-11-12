@@ -121,7 +121,6 @@ on(document, 'click', '.btnEditar', e => {
 formPropiedades.addEventListener('submit', (e) => {
     e.preventDefault()
     if (opcion == 'crear') {
-        console.log(url)
         fetch(url, {
                 method: 'POST',
                 headers: {

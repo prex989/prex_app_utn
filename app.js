@@ -110,7 +110,7 @@ app.post('/propiedades', (req, res) => {
 });
 
 
-//Trae todas las fotos de galeria
+//Trae todas las fotos de galeria.hbs
 
 app.get('/galeria', (req, res) => {
     let sql = "SELECT * FROM galeria";
@@ -121,6 +121,41 @@ app.get('/galeria', (req, res) => {
         });
     });
 })
+
+
+//Trae todas las fotos de galeria API
+// app.get('/galeria', (req, res) => {
+//     let sql = "SELECT * FROM galeria";
+//     let query = conn.query(sql, (err, results) => {
+//         if (err) throw err;
+//         res.send('results')
+//     });
+// })
+
+app.post('/galeria', (req, res) => {
+    let data = { id: req.body.id, url: req.body.imagen };
+    let sql = "INSERT INTO propiedades SET?";
+    conn.query(sql, data, function(error, results) {
+        if (error) {
+            throw error;
+        } else {
+            res.send(results);
+        }
+    });
+});
+
+app.put('/galeria', (req, res) => {
+    let data = { url: req.body.imagen, id: req.body.id };
+    let sql = "UPDATE INTO propiedades SET? WHERE id=?";
+    conn.query(sql, data, function(error, results) {
+        if (error) {
+            throw error;
+        } else {
+            res.send(results);
+        }
+    });
+});
+
 
 //Traer todos los registros propiedades
 app.get('/propiedades', (req, res) => {
@@ -168,32 +203,7 @@ app.delete('/propiedades/:id', (req, res) => {
     });
 });
 
-//Agregar
 
-// app.get('/admin', (req, res) => {
-//     let sql = "SELECT * FROM propiedades";
-//     let query = conn.query(sql, (error, filas) => {
-//         if (error) {
-//             throw error;
-//         } else {
-//             res.send(filas);
-//         }
-//     });
-// })
-
-
-
-// app.get('/contactos', (req, res) => {
-//     res.send('Yo soy contacto!')
-// })
-
-// app.get('/usuarios', (req, res) => {
-//     res.send('usuario: Pablo')
-// })
-
-// app.get('/ayuda', (req, res) => {
-//     res.send('Vengo a darte una mano')
-// })
 
 
 app.get('*', (req, res) => {

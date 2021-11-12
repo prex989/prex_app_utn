@@ -1,1 +1,0 @@
-console.log('linkea ok a js');
