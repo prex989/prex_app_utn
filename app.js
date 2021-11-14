@@ -110,31 +110,21 @@ app.post('/propiedades', (req, res) => {
 });
 
 
-//Trae todas las fotos de galeria.hbs
+//Trae todas las fotos de admingaleria
 
-app.get('/galeria', (req, res) => {
+//Trae todas las fotos de galeria API
+
+app.get('/galeriazoom', (req, res) => {
     let sql = "SELECT * FROM galeria";
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
-        res.render('galeria', {
-            results
-        });
+        res.send(results)
     });
 })
 
-
-//Trae todas las fotos de galeria API
-// app.get('/galeria', (req, res) => {
-//     let sql = "SELECT * FROM galeria";
-//     let query = conn.query(sql, (err, results) => {
-//         if (err) throw err;
-//         res.send('results')
-//     });
-// })
-
-app.post('/galeria', (req, res) => {
-    let data = { id: req.body.id, url: req.body.imagen };
-    let sql = "INSERT INTO propiedades SET?";
+app.post('/galeriazoom', (req, res) => {
+    let data = { id: req.body.id, url: req.body.url };
+    let sql = "INSERT INTO galeria SET?";
     conn.query(sql, data, function(error, results) {
         if (error) {
             throw error;
@@ -144,10 +134,11 @@ app.post('/galeria', (req, res) => {
     });
 });
 
-app.put('/galeria', (req, res) => {
-    let data = { url: req.body.imagen, id: req.body.id };
-    let sql = "UPDATE INTO propiedades SET? WHERE id=?";
-    conn.query(sql, data, function(error, results) {
+app.put('/galeriazoom/:id', (req, res) => {
+    let url = req.body.url;
+    let id = req.params.id;
+    let sql = "UPDATE galeria SET url=? WHERE id=?";
+    conn.query(sql, [url, id], function(error, results) {
         if (error) {
             throw error;
         } else {
@@ -156,6 +147,17 @@ app.put('/galeria', (req, res) => {
     });
 });
 
+//Eliminar de galeria
+
+app.delete('/galeriazoom/:id', (req, res) => {
+    conn.query('DELETE FROM galeria WHERE id=?', [req.params.id], function(error, filas) {
+        if (error) {
+            throw error;
+        } else {
+            res.send(filas);
+        }
+    });
+});
 
 //Traer todos los registros propiedades
 app.get('/propiedades', (req, res) => {

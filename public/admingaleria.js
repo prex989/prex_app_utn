@@ -1,6 +1,6 @@
 //Definición de variables
-const url = 'http://localhost:3000/propiedades/'
-const urlgal = 'http://localhost:3000/galeria/'
+
+const urlgal = 'http://localhost:3000/galeriazoom/'
 const contenedor = document.querySelector('tbody')
     // const Handlebars = require("handlebars");
 let resultados = ''
@@ -8,6 +8,7 @@ let resultados = ''
 const modalGaleria = new bootstrap.Modal(document.getElementById('modalGaleria'))
 const formGaleria = document.querySelector('form')
 const id = document.getElementById('id')
+const url = document.getElementById('url')
 const imagen = document.getElementById('imagen')
 const imagePreview = document.getElementById('imagen')
 const imageUploader = document.getElementById('imagen')
@@ -20,6 +21,8 @@ var opcion = ''
 
 
 btnCrear.addEventListener('click', () => {
+    // id.value = ''
+    // url.value = ''
     modalGaleria.show()
     opcion = 'crear'
 })
@@ -41,6 +44,7 @@ const mostrar = (galeria) => {
 
 
 //Procedimiento Mostrar
+
 fetch(urlgal)
     .then(response => response.json())
     .then(data => mostrar(data))
@@ -77,7 +81,8 @@ let idForm = 0
 on(document, 'click', '.btnEditar', e => {
     const fila = e.target.parentNode.parentNode
     idForm = fila.children[0].innerHTML
-    imagen.value = imagePreview.src
+    const url = fila.children[1].innerHTML
+    url.value = imagePreview.src
     opcion = 'editar'
     modalGaleria.show()
 
@@ -94,7 +99,7 @@ formGaleria.addEventListener('submit', (e) => {
                 },
                 body: JSON.stringify({
                     id: id.value,
-                    imagen: imagePreview.src
+                    url: imagePreview.src
                 })
             })
             .then(response => {
@@ -115,7 +120,8 @@ formGaleria.addEventListener('submit', (e) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    imagen: imagePreview.src
+                    url: imagePreview.src,
+                    id: id.value
                 })
             })
             .then(response => response.json())
@@ -136,7 +142,8 @@ imageUploader.addEventListener('change', async(e) => {
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
 
-    // Enviar a cloudianry
+    // Enviar a cloudinary
+
     const res = await axios.post(
         CLOUDINARY_URL,
         formData, {

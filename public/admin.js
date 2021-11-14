@@ -86,7 +86,7 @@ on(document, 'click', '.btnBorrar', e => {
                 })
                 .then(res => res.json())
                 .then(() => location.reload())
-                //alertify.success('Ok')
+                // alertify.success('Ok')
         },
         function() {
             alertify.error('Cancel')
@@ -148,7 +148,6 @@ formPropiedades.addEventListener('submit', (e) => {
             })
     }
     if (opcion == 'editar') {
-        //console.log('OPCION EDITAR')
         fetch(url + idForm, {
                 method: 'PUT',
                 headers: {
