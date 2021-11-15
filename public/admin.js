@@ -1,5 +1,5 @@
 //Definición de variables
-const url = 'http://localhost:3000/propiedades/'
+const url = 'http://localhost:5000/propiedades/'
 const contenedor = document.querySelector('tbody')
     // const Handlebars = require("handlebars");
 let resultados = ''

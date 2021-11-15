@@ -1,6 +1,6 @@
 //Definición de variables
 
-const urlgal = 'http://localhost:3000/galeriazoom/'
+const urlgal = 'http://localhost:5000/galeriazoom/'
 const contenedor = document.querySelector('tbody')
     // const Handlebars = require("handlebars");
 let resultados = ''

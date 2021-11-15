@@ -1,62 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
-    <title>Mi Web Inicial</title>
-    <!-- Bootstrap archivos compilados -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/estilos.css" />
-    </head>
-          <!-- -------HEADER-------------- -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
+  <title>Mi Web Inicial</title>
+  <!-- Bootstrap archivos compilados -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<!-- -------HEADER-------------- -->
 {{>header}}
 <!--------------------------galeria---------------------->
 <div class="galeria">
-    <h1>Propiedades en Alquiler</h1>
-    {{#each results}}
-    <div class="linea"></div>
-    <div class="contenedor-imagenes">
+  <h1>Propiedades en Alquiler</h1>
+  {{#each results}}
+  <div class="linea"></div>
+  <div class="contenedor-imagenes">
     <div class="imagen">
       <img src={{imagen}}>
       <div class="overlay">
-        <h2><a href="galeria">Ver mas Fotos</a></h2>
+        <h2><a href="galeria/{{id}}">Ver mas Fotos</a></h2>
       </div>
     </div>
   </div>
-<div class="mx-auto d-block text-center">
+  <div class="mx-auto d-block text-center">
     <h5>Sup Cubierta: {{supcub}}</h5>
     <h5>Sup Total: {{suptot}}</h5>
-    <h5>Dormitorios: {{dormi}}</h5>    
+    <h5>Dormitorios: {{dormi}}</h5>
     <h5>Precio: $ {{precio}}</h5>
-</div>
+  </div>
   {{/each}}
 </div>
 
-
-{{!-- //Detalle de la propiedad --}}
-{{!-- <table class=table table-striped id="myTable">
-       <thead>
-                <th> Sup Total </th>
-                <th> Sup Cubierta </th>
-                <th> Dormitorios </th>
-                <th> Precio </th>
-        </thead>
-        <tbody>
-                {{#each results}}
-                <tr>
-                 <td>{{ sup_total }} </td>
-                 <td>{{ sup_cubierta }} </td>                 
-                  <td>{{ dormitorios }} </td>
-                  <td>U$${{ precio }} </td>
-                </tr>
-                {{/each}}
-        </tbody>
-</table> --}}
-
 {{>footer}}
 
-    </body>
+</body>
+
 </html>

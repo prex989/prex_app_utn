@@ -1,26 +1,39 @@
+//Invocamos a express
 const express = require('express')
-const hbs = require('hbs')
 const app = express()
+
+//Invocamos a HBS
+const hbs = require('hbs')
+
+//invocamos a Dotenv
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 const port = process.env.PORT || 3000;
+
+
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+
+//apuntamos a las rutas de js
 const { connect } = require('./routes');
+
+// invocamos a Cors por manejo de HTTP y Ajaxs
 var cors = require('cors');
 
-
+//Invocamos a Urlencoded para obtener datos de formularios
 app.use(express.urlencoded({ extended: false }));
+
+//Middleware y Setting
 app.use(require('./routes'));
 app.set('view engine', 'hbs')
+
+//apuntamos a public y assets el contenido estatico
 app.use(express.static("public"));
 app.use(express.json());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/assets', express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + "/views/partials/");
-require('dotenv').config();
-// app.use('/assets', express.static(__dirname + '/public'));
 
-
+//Puerto utilizado para la conexion
 app.listen(port, () => {
     console.log(`Usando el puerto http://localhost:${port}`)
 });
@@ -95,19 +108,30 @@ app.get('/ventas', (req, res) => {
     });
 })
 
-//Crear nuevo registro propiedades
+// Trae todos los registros de galeria para galeria.hbs
 
-app.post('/propiedades', (req, res) => {
-    let data = { precio: req.body.precio, supcub: req.body.supcub, suptot: req.body.suptot, dormi: req.body.dormi, descripcion: req.body.descripcion, estado_inm: req.body.estado_inm, imagen: req.body.imagen };
-    let sql = "INSERT INTO propiedades SET?";
-    conn.query(sql, data, function(error, results) {
-        if (error) {
-            throw error;
-        } else {
-            res.send(results);
-        }
+app.get('/galeria', (req, res) => {
+        let sql = "SELECT * FROM galeria";
+        let query = conn.query(sql, (err, results) => {
+            if (err) throw err;
+            res.render('galeria', {
+                results
+            });
+        });
+    })
+    // traer los registros de un id en galeria
+
+app.get('/galeria/:id', (req, res) => {
+    let id = req.params.id;
+    let sql = "SELECT url FROM galeria WHERE id=?";
+    let query = conn.query(sql, [id], (err, results) => {
+        if (err) throw err;
+        res.render('galeria', {
+            results
+        });
     });
-});
+})
+
 
 
 //Trae todas las fotos de admingaleria
@@ -171,7 +195,19 @@ app.get('/propiedades', (req, res) => {
     });
 })
 
+//Crear nuevo registro propiedades
 
+app.post('/propiedades', (req, res) => {
+    let data = { precio: req.body.precio, supcub: req.body.supcub, suptot: req.body.suptot, dormi: req.body.dormi, descripcion: req.body.descripcion, estado_inm: req.body.estado_inm, imagen: req.body.imagen };
+    let sql = "INSERT INTO propiedades SET?";
+    conn.query(sql, data, function(error, results) {
+        if (error) {
+            throw error;
+        } else {
+            res.send(results);
+        }
+    });
+});
 
 //editar propiedades
 app.put('/propiedades/:id', (req, res) => {
