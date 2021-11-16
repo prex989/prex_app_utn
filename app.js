@@ -139,7 +139,7 @@ app.get('/galeria/:id', (req, res) => {
 //Trae todas las fotos de galeria API
 
 app.get('/galeriazoom', (req, res) => {
-    let sql = "SELECT * FROM galeria";
+    let sql = "SELECT * FROM galeria ORDER BY id asc";
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results)
@@ -159,10 +159,11 @@ app.post('/galeriazoom', (req, res) => {
 });
 
 app.put('/galeriazoom/:id', (req, res) => {
+    let keygal = req.body.keygal;
     let url = req.body.url;
     let id = req.params.id;
-    let sql = "UPDATE galeria SET url=? WHERE id=?";
-    conn.query(sql, [url, id], function(error, results) {
+    let sql = "UPDATE galeria SET url=? WHERE keygal=?";
+    conn.query(sql, [url, id, keygal], function(error, results) {
         if (error) {
             throw error;
         } else {
@@ -173,8 +174,8 @@ app.put('/galeriazoom/:id', (req, res) => {
 
 //Eliminar de galeria
 
-app.delete('/galeriazoom/:id', (req, res) => {
-    conn.query('DELETE FROM galeria WHERE id=?', [req.params.id], function(error, filas) {
+app.delete('/galeriazoom/:keygal', (req, res) => {
+    conn.query('DELETE FROM galeria WHERE keygal=?', [req.params.keygal], function(error, filas) {
         if (error) {
             throw error;
         } else {

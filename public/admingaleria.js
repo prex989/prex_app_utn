@@ -31,6 +31,7 @@ btnCrear.addEventListener('click', () => {
 const mostrar = (galeria) => {
     galeria.forEach(galeria => {
         resultados += `<tr>
+                            <td>${galeria.keygal}</td>
                             <td>${galeria.id}</td>
                             <td>${galeria.url}</td>                    
                             <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
@@ -62,10 +63,10 @@ const on = (element, event, selector, handler) => {
 //Procedimiento Borrar
 on(document, 'click', '.btnBorrar', e => {
     const fila = e.target.parentNode.parentNode
-    const id = fila.firstElementChild.innerHTML
+    const keygal = fila.firstElementChild.innerHTML
     alertify.confirm("Esta seguro de borrar este elemento?",
         function() {
-            fetch(urlgal + id, {
+            fetch(urlgal + keygal, {
                     method: 'DELETE'
                 })
                 .then(res => res.json())
