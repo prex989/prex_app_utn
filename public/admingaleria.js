@@ -34,7 +34,7 @@ const mostrar = (galeria) => {
                             <td>${galeria.keygal}</td>
                             <td>${galeria.id}</td>
                             <td>${galeria.url}</td>                    
-                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
+                            <td class="text-center"><a class="btnEditar btn btn-primary"><i class="fas fa-edit"></i></a><a class="btnBorrar btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                        </tr>
                     `
     })

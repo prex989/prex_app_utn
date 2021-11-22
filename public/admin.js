@@ -46,7 +46,7 @@ const mostrar = (propiedades) => {
                             <td>${propiedades.descripcion}</td>
                             <td>${propiedades.estado_inm}</td>        
                             <td>${propiedades.imagen}</td>                    
-                            <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
+                            <td class="text-center"><a class="btnEditar btn btn-primary"><i class="fas fa-edit"></i></a><a class="btnBorrar btn btn-danger"><i class="fas fa-trash-alt"></i></i></a></td>
                        </tr>
                     `
     })
@@ -190,7 +190,7 @@ imageUploader.addEventListener('change', async(e) => {
             },
             onUploadProgress(e) {
                 let progress = Math.round((e.loaded * 100.0) / e.total);
-                console.log(progress);
+                // console.log(progress);
                 imageUploadbar.setAttribute('value', progress);
             }
         }

@@ -20,20 +20,20 @@ router.post('/send-email', async(req, res) => {
     `;
 
     transporter = nodemailer.createTransport({
-        pool: true,
-        host: "smtp.gmail.com",
-        port: 465,
+        pool: process.env.TRANSPOOL,
+        host: process.env.TRANSHOST,
+        port: process.env.TRANSPORT,
         secure: true, // use TLS
         auth: {
             user: "jlginmobiliaria2020@gmail.com",
-            pass: "xoziiazglfgbxtzc",
+            pass: "etjfeildvotgbtql",
         },
     });
 
     let info = await transporter.sendMail({
-        from: "'JLG Web' <jlginmobiliaria2020@gmail.com>",
-        to: 'pablorex2012@gmail.com',
-        subject: 'Formulario de Contacto Web JLG',
+        from: process.env.MAILFROM,
+        to: process.env.MAILTO,
+        subject: process.env.MAILSUBJECT,
         html: contentHTML
     });
     console.log('message sent', info.messageId);
