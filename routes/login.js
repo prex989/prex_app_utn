@@ -13,15 +13,7 @@ app.use(express.json());
 const bcrypt = require('bcryptjs');
 
 
-//establecemos las rutas
-// app.get('/login', (req, res) => {
-//     res.render('login');
-// })
 
-
-// app.get('/register', (req, res) => {
-//     res.render('register');
-// })
 
 //Metodo para la autenticacion
 app.post('/auth', async(req, res) => {
@@ -29,30 +21,37 @@ app.post('/auth', async(req, res) => {
     const pass = req.body.pass;
     let passwordHash = await bcrypt.hash(pass, 8);
     if (user && pass) {
-        conn.query('SELECT * FROM usuarios WHERE user = ?', [user], async(error, results, fields) => {
-            if (results.length == 0 || !(await bcrypt.compare(passwordHash, results[0].pass))) {
-                console.log("logueado incorectamente");
-                res.redirect('login');
-
-                //Mensaje simple y poco vistoso
-                //res.send('Usuario o Clave incorrecta');				
+        conn.query('SELECT * FROM usuarios WHERE user = ?', [user], async(error, results) => {
+            if (results.length == 0 || !(await bcrypt.compare(pass, results[0].pass))) {
+                res.redirect('/login')
             } else {
                 //creamos una var de session y le asignamos true si INICIO SESSION       
                 req.session.loggedin = true;
                 req.session.name = results[0].name;
-                console.log("logueado ok");
-                res.redirect('admin');
+                mostrarAlerta();
+                res.redirect('/admin')
             }
             res.end();
         });
     } else {
-        res.send('Por favor ingresar usuario y/o password');
+        res.send('Por favor ingresar usuario o password!');
         res.end();
     }
 });
 
+//funcion de alertas
+function mostrarAlerta() {
+    const swal = Swal.fire({
+        alert: true,
+        title: "Conexión exitosa",
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500,
+    })
+}
+
 //Método para controlar que está logueado en todas las páginas
-app.get('/', (req, res) => {
+app.get('/admin', (req, res) => {
     if (req.session.loggedin) {
         res.render('index', {
             login: true,
