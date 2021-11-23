@@ -73,6 +73,8 @@ module.exports = conn;
 
 //session logueo
 
+// const auth = require('./routes/login');
+
 //Invocamos a bcrypt
 const bcrypt = require('bcryptjs');
 
@@ -300,7 +302,7 @@ app.post('/register', async(req, res) => {
     });
 })
 
-// //Metodo para la autenticacion
+//Metodo para la autenticacion
 app.post('/auth', async(req, res) => {
     const user = req.body.user;
     const pass = req.body.pass;
@@ -324,7 +326,7 @@ app.post('/auth', async(req, res) => {
     }
 });
 
-// //funcion de alertas
+//funcion de alertas
 function mostrarAlerta() {
     const swal = Swal.fire({
         alert: true,
@@ -335,7 +337,7 @@ function mostrarAlerta() {
     })
 }
 
-// //Método para controlar que está logueado en todas las páginas
+//Método para controlar que está logueado en todas las páginas
 app.get('/admin', (req, res) => {
     if (req.session.loggedin) {
         res.render('index', {
@@ -351,14 +353,14 @@ app.get('/admin', (req, res) => {
     res.end();
 });
 
-// //función para limpiar la caché luego del logout
+//función para limpiar la caché luego del logout
 app.use(function(req, res, next) {
     if (!req.user)
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next();
 });
 
-// //Logout
+//Logout
 //Destruye la sesión.
 app.get('/logout', function(req, res) {
     req.session.destroy(() => {
