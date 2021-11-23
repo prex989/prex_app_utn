@@ -49,7 +49,10 @@ app.use((req, res, next) => {
     next();
 });
 
+//alertas sweet2
 
+// CommonJS
+const Swal = require('sweetalert2')
 
 //conexion a base de datos
 
@@ -78,7 +81,7 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'secret',
+    secret: 'kdfklej4k4jkljlkj',
     resave: true,
     saveUninitialized: true
 }));

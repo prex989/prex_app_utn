@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2021 a las 17:14:40
+-- Tiempo de generación: 23-11-2021 a las 03:35:38
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -81,7 +81,48 @@ CREATE TABLE `galeria` (
 
 INSERT INTO `galeria` (`id`, `url`, `keygal`) VALUES
 (11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637510687/janrg17oglsjsk9kkcg3.jpg', 11),
-(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637511223/miifzc6wtbqbuxafsdql.jpg', 12);
+(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637511223/miifzc6wtbqbuxafsdql.jpg', 12),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555721/l2rujptfey6z7gjquuru.jpg', 13),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555731/bshp64xog1ly0opetyfi.jpg', 14),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555741/cmng94kgzhx08fod8lgh.jpg', 15),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555752/pulpbjivtsvnhdl5ezqn.jpg', 16),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555761/urzq4w9orlrfz8mtallg.jpg', 17),
+(6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555778/uygjkjyymms4j0ch9sp9.jpg', 18),
+(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634303/byckkvd4rsazk2lu8mst.jpg', 19),
+(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634314/j9ynxgh9akoh1a8prmo3.jpg', 20),
+(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634325/sjus8uzje2vnxdnxz1rq.jpg', 21),
+(18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634371/pyrdoizrcdxa9c78pbro.jpg', 22),
+(18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634395/s23t9qn60va4ex0jjaan.jpg', 23),
+(18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634403/zewiofybrgjqkwdaqhw2.jpg', 24),
+(18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634411/lrzfoqjp7diaijibfynt.jpg', 25),
+(18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634421/jnr292wvtmvzb9flnmya.jpg', 26),
+(8, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634479/vwwyh0z6alecedmfdvww.jpg', 27),
+(8, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634488/zpfjjx7njwbjl0qzxa6p.jpg', 28),
+(8, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634495/idwhdtyxsskynu5ygw70.jpg', 29),
+(8, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634503/aznx9kszxheutm49gywj.jpg', 30),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634565/rz9grd8qc1cdaoxpdjl9.jpg', 31),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634581/eebfocrldizq4rk92ird.jpg', 32),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634590/ilvevhzjlveie0cd940n.jpg', 33),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634597/zsdxlhyucv25jbvypwzw.jpg', 34),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634605/q9xcndfl8mrajhyiewzp.jpg', 35),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634618/vfawyen2j39zryneipiu.jpg', 36),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634627/paamg6kbpe483ukm635c.jpg', 37),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634676/mho9f35pwlhuja3t4oco.jpg', 38),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634690/qut8ztis1tm2tvhtxsjm.jpg', 39),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634697/zrw9sowykbtsgoihf0ns.jpg', 40),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634703/f5otn1kxc9l1d8kgfeip.jpg', 41),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634710/ibspshdtj2omlildr17p.jpg', 42),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634718/lnfqbwvabv98iuoqhkmp.jpg', 43),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634726/ouie8jja6e8qfdlndukg.jpg', 44),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634735/zgcr1usgcip2whpon6dg.jpg', 45),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634764/ioezr1s79g3zre3k9sxx.jpg', 46),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634826/gdcut25e0xysbqtvjf9s.jpg', 47),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634837/tdbkft5rd8wdgwvbz8jo.jpg', 48),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634843/nngy8uypwunpqqxabdej.jpg', 49),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634857/id9gifx5mcqj5xyt9kwq.jpg', 51),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634873/bpktxliketkpsldyqulm.jpg', 52),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634883/euxcqhtvhexm7qxomg6p.jpg', 53),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634890/h02tn3wuaezftly9ahnw.jpg', 54);
 
 -- --------------------------------------------------------
 
@@ -120,11 +161,11 @@ CREATE TABLE `propiedades` (
 
 INSERT INTO `propiedades` (`id`, `imagen`, `dormi`, `precio`, `supcub`, `suptot`, `estado_inm`, `dueño`, `descripcion`) VALUES
 (6, 'https://res.cloudinary.com/student-arg21/image/upload/v1637510538/ylipcssdftkjmwrjuzdu.jpg', 3, 44500, 89, 121, 'Venta', 0, 'Casa muy comoda y funcional'),
-(8, '', 4, 120000, 150, 400, 'Venta', 0, 'Casa ubicada en barrio Cerro de las Rosas con Pileta'),
-(9, '', 4, 250000, 150, 300, 'Venta', 0, 'Complejo de cabañas en Villa Carlos Paz'),
-(10, '', 3, 180000, 185, 350, 'Venta', 0, 'Casa para una familia numerosa con pileta y patio'),
-(11, '', 3, 125000, 134, 600, 'Alquiler', 0, 'Casa con Pileta en las sierras'),
-(12, '', 4, 150000, 140, 550, 'Venta', 0, 'Casa en Villa Allende'),
+(8, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555516/pwt8vvjmuhef1endxtt8.jpg', 4, 120000, 150, 400, 'Venta', 0, 'Casa ubicada en barrio Cerro de las Rosas con Pileta'),
+(9, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555542/s7u2pgiiwwztyrjttqav.jpg', 4, 250000, 150, 300, 'Venta', 0, 'Complejo de cabañas en Villa Carlos Paz'),
+(10, 'https://res.cloudinary.com/student-arg21/image/upload/v1637634788/xhlbx4twnxymmsqk8zo9.jpg', 3, 180000, 185, 350, 'Venta', 0, 'Casa para una familia numerosa con pileta y patio'),
+(11, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555574/qdeqwsxluvuja5royq9w.jpg', 3, 125000, 134, 600, 'Alquiler', 0, 'Galpon'),
+(12, 'https://res.cloudinary.com/student-arg21/image/upload/v1637555598/sx1o5ot5mnfka2hsmfap.jpg', 4, 150000, 140, 550, 'Venta', 0, 'Casa en Villa Allende'),
 (18, 'https://res.cloudinary.com/student-arg21/image/upload/v1637510596/ctbwfjeet21irngmppsr.jpg', 3, 45000, 120, 180, 'Alquiler', 0, 'Casa muy comoda y funcional');
 
 -- --------------------------------------------------------
@@ -176,19 +217,19 @@ CREATE TABLE `tipo_user` (
 --
 
 CREATE TABLE `usuarios` (
-  `user` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL,
+  `user` varchar(50) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `pass` varchar(300) NOT NULL,
-  `id` int(7) NOT NULL,
-  `roll` varchar(20) NOT NULL
+  `pass` varchar(255) NOT NULL,
+  `rol` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`user`, `name`, `pass`, `id`, `roll`) VALUES
-('prueba', 'usuario de prueba', '12345', 8, 'Admin');
+INSERT INTO `usuarios` (`id`, `user`, `name`, `pass`, `rol`) VALUES
+(2, 'admin', 'Administrador', '$2a$08$sYLTr7hDJDUFuk/LY0nHVOXXyKyRvR0SccKe81k094r9L5dbIBbua', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -271,7 +312,7 @@ ALTER TABLE `estado_propiedad`
 -- AUTO_INCREMENT de la tabla `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `keygal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `keygal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `log`
@@ -307,7 +348,7 @@ ALTER TABLE `tipo_user`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
