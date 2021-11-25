@@ -14,5 +14,7 @@ También se pueden registrar nuevos usuarios con dos niveles de acceso, Admin y 
 
 la segunda etapa del proyecto es poder realizar además de publicaciones en la aplicación, es poder replicar esa publicación en Marketplace, Instagram y Zona Prop.
 
-El CRUD
+La aplicación es responsive, pero el módulo de administración es responsive hasta una tablet.
+
+
 
