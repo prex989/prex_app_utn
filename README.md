@@ -28,6 +28,7 @@ La aplicación es responsive, pero el módulo de administración es responsive h
 
 La Base de datos es en My SQL de tipo relacional.
 El Back end se desarrolló con NODE.
+
 LOGIN:
 Se agregó el accedo al CRUD a través de una pantalla de login.
 las claves de acceso tienen encriptación de seguridad, se utilizaron los módulos bcrypt y express session.
