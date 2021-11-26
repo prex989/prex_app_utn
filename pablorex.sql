@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 03:35:38
+-- Tiempo de generación: 26-11-2021 a las 16:50:45
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -229,7 +229,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `user`, `name`, `pass`, `rol`) VALUES
-(2, 'admin', 'Administrador', '$2a$08$sYLTr7hDJDUFuk/LY0nHVOXXyKyRvR0SccKe81k094r9L5dbIBbua', 'admin');
+(2, 'admin', 'Administrador', '$2a$08$sYLTr7hDJDUFuk/LY0nHVOXXyKyRvR0SccKe81k094r9L5dbIBbua', 'admin'),
+(3, 'prueba', 'usuario de prueba', '$2a$08$wSJeIrVyzZxfnm3sBhvCkeWSs/JKDaXMpXqmS9b6ZeooF8N2cnCvy', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -252,7 +253,8 @@ ALTER TABLE `estado_propiedad`
 -- Indices de la tabla `galeria`
 --
 ALTER TABLE `galeria`
-  ADD PRIMARY KEY (`keygal`);
+  ADD PRIMARY KEY (`keygal`),
+  ADD KEY `GALPROP` (`id`);
 
 --
 -- Indices de la tabla `log`
@@ -312,7 +314,7 @@ ALTER TABLE `estado_propiedad`
 -- AUTO_INCREMENT de la tabla `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `keygal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `keygal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `log`
@@ -324,7 +326,7 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT de la tabla `propiedades`
 --
 ALTER TABLE `propiedades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `suscripciones`
@@ -348,11 +350,17 @@ ALTER TABLE `tipo_user`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `galeria`
+--
+ALTER TABLE `galeria`
+  ADD CONSTRAINT `GALPROP` FOREIGN KEY (`id`) REFERENCES `propiedades` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tipo_user`
