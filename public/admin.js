@@ -64,10 +64,6 @@ fetch(url)
 
 
 const on = (element, event, selector, handler) => {
-    //console.log(element)
-    //console.log(event)
-    //console.log(selector)
-    // console.log(handler)
     element.addEventListener(event, e => {
         if (e.target.closest(selector)) {
             handler(e)
@@ -86,7 +82,6 @@ on(document, 'click', '.btnBorrar', e => {
                 })
                 .then(res => res.json())
                 .then(() => location.reload())
-                // alertify.success('Ok')
         },
         function() {
             alertify.error('Cancel')

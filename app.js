@@ -315,7 +315,6 @@ app.post('/auth', async(req, res) => {
                 //creamos una var de session y le asignamos true si INICIO SESSION       
                 req.session.loggedin = true;
                 req.session.name = results[0].name;
-                mostrarAlerta();
                 res.redirect('/admin')
             }
             res.end();
@@ -326,16 +325,6 @@ app.post('/auth', async(req, res) => {
     }
 });
 
-//funcion de alertas
-function mostrarAlerta() {
-    const swal = Swal.fire({
-        alert: true,
-        title: "Conexión exitosa",
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500,
-    })
-}
 
 //Método para controlar que está logueado en todas las páginas
 app.get('/admin', (req, res) => {
